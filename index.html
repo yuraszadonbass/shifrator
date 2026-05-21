@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./assets/favicon/favicon.png">
+    
+    <!-- Шрифты -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/main.css">
+    
+    <!-- Атрибут defer нужен, чтобы скрипт запускался после полной загрузки html -->
+    <script src="./script/main.js" defer></script>
+    <title>Шифратор текста</title>
+</head>
+<body>
+    <h1>Шифратор текста</h1>
+
+    <div class="content-container">
+        <!-- Блоки полей ввода -->
+         <div class="column">
+             <div class="main-container">
+                <div class="left-top-line">
+                    <p class="main-text-area-label">Исходный текст</p>
+                </div>
+                 <textarea placeholder="Введите текст" autocomplete="off" class="main-text-field entry-text" name="entry-text" id="input_field" required></textarea>
+             </div>
+
+             <!-- У input переключаемый класс key-input-disabled, который отключает поле ввода ключа, когда оно не нужно -->
+             <input class="key-input" type="text" autocomplete="off" id="key_field" placeholder="Ключ шифрования">
+
+             <select class="ciphers-list" name="cipher" id="ciphers_list">
+                <option value="-1">Выберите шифр</option>
+                <option value="0">Шифр Цезаря</option>
+                <option value="1">Цезарь с шагом назад</option>
+                <option value="2">Атбаш</option>
+                <option value="3">A1Z26</option>
+                <option value="4">Бэкон</option>
+             </select>
+
+             <div class="encrypt_button" id="encrypt_button"><span>Зашифровать</span></div>
+         </div>
+         <div class="column">
+             <div class="main-container">
+                <div class="top-line">
+                    <p class="main-text-area-label">Результат шифрования</p>
+                    <div class="copy-icon-container">
+                        <button class="copy-button" id="copy_button">
+                            <img src="./assets/icons/copy.svg" alt="Скопировать" class="copy-icon">
+                        </button>
+                        <p class="copied-alert alert-hidden" id="copied_notification">Скопировано!</p>
+                    </div>
+                </div>
+                 <textarea disabled class="main-text-field output-field" name="output-text" id="output_field" required></textarea>
+             </div>
+             <div class="error-message-container">
+                 <p class="error-message" id="error_message"></p>
+             </div>
+         </div>
+    </div>
+</body>
+</html>
